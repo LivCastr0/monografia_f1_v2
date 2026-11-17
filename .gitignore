@@ -28,3 +28,6 @@ Thumbs.db
 
 # Variáveis de ambiente
 .env
+
+# Bases geradas por src/bases.py (refeitas em segundos a partir das coletas)
+data/bases/

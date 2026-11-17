@@ -39,6 +39,15 @@ preservada no repositório original, `LivCastr0/monografia_f1`.
 - Teste do script de coleta (`testa_coleta_corrida.py`)
 - Contagem manual de zonas de DRS por circuito (`data/external/zonas_drs_por_circuito.csv`)
 
+### Bases (`src/bases.py`)
+
+- Tudo sai de duas tabelas centrais, `corridas` e `piloto_volta`; as bases das análises são recortes delas
+- 163 corridas com volta a volta; 122 entram nas análises de corrida seca (secas, com disputa e com 80% ou mais das paradas conferidas)
+- Conferência contra a versão 1 (`src/confere_bases.py`):
+  - duelos: as mesmas 19.475 linhas, todos os descritores iguais
+  - decisão de parar: 120.989 linhas contra 121.075; todos os descritores iguais nas linhas comuns
+- Correção em relação à versão 1: na decisão de parar, 86 voltas sem idade do pneu (Baku 2018 e Spielberg 2022, uma delas com parada) caíam na faixa "30+ voltas" porque a função de faixas não tratava valor vazio. Agora saem da base
+
 ### Pendente
 
-- Montar as bases por grão a partir das coletas
+- Motor de busca, validação e camada de perfil

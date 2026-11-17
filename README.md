@@ -79,6 +79,23 @@ Coleta e engenharia de features para o grão circuito.
 
 Recomeço da Etapa 2 a partir das coletas já feitas. A primeira versão das análises fica preservada no repositório original, `LivCastr0/monografia_f1`.
 
+**Como está organizada:**
+
+```
+src/bases.py          tabelas centrais (corridas, piloto-corrida, piloto-volta)
+                      e os recortes de cada análise (decisão de parar, duelos)
+src/confere_bases.py  compara as bases com as da versão 1, linha a linha
+src/busca.py          motor de descoberta de subgrupos         (a escrever)
+src/validacao.py      permutação, firmeza, redundância          (a escrever)
+src/perfil.py         camada de perfil, igual para todas        (a escrever)
+src/rodar.py          roda uma análise a partir da ficha        (a escrever)
+analises/             uma ficha por análise, escrita antes de rodar
+results/              saídas, uma pasta por análise
+data/bases/           bases geradas (não versionadas)
+```
+
+Para gerar as bases: `python src/bases.py` (cerca de 6 s).
+
 **Coletas prontas:**
 - `data/interim/corridas/` — pilotos, stints, bandeiras e clima por corrida (`src/coleta_corridas.py`)
 - `data/interim/voltas/` — volta a volta de 163 corridas, 2018–2025 (`src/coleta_voltas.py`)
