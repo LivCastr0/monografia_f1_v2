@@ -1,0 +1,84 @@
+Análise: decisao_parada_prof3 — em que situações as equipes decidem parar?
+Base: 120,989 linhas, 122 corridas, 26 circuitos. Média geral do alvo: 0.0292
+
+==============================================================================
+1. O ALVO POR PERFIL
+==============================================================================
+                linhas  circuitos  media
+d_perfil                                
+alto downforce   47683         11 0.0308
+potência         21253          5 0.0282
+stop-and-go      43993          8 0.0297
+urbano-técnico    8060          2 0.0190
+
+O perfil muda o alvo? p = 0.3699 (permutação entre 26 circuitos)
+
+==============================================================================
+2. A BUSCA (12 descritores, profundidade 3, suporte 200)
+==============================================================================
+Subgrupos com suporte mínimo: 4,447 (4.3 s)
+Elegíveis (4+ circuitos, nenhum acima de 40%): 4,051
+Limiar |z| (5%, 500 permutações): 7.68 (527.6 s)
+Acima do limiar: 1772   firmes: 1771   firmes com perfil: 334
+
+Maiores |z| entre os elegíveis:
+                                                             descricao  linhas  circuitos  media       z firme
+                                       neutralizacao=safety car ou VSC    4570         26 +0.141 +44.912  True
+neutralizacao=safety car ou VSC E dist_frente=mais de 3 s E paradas...     335         26 +0.433 +43.919  True
+             neutralizacao=safety car ou VSC E dist_frente=mais de 3 s    1648         26 +0.208 +43.189  True
+idade_pneu=10–19 voltas E neutralizacao=safety car ou VSC E paradas...     298         17 +0.443 +42.461  True
+neutralizacao=safety car ou VSC E rival_frente=rival da frente não ...    4358         26 +0.137 +42.316  True
+  neutralizacao=safety car ou VSC E rival_tras=rival de trás não parou    4330         26 +0.136 +41.714  True
+            neutralizacao=safety car ou VSC E janela=não cabe a parada    4153         26 +0.138 +41.593  True
+            neutralizacao=safety car ou VSC E paradas_feitas=0 paradas    1653         26 +0.200 +41.348  True
+                         paradas_feitas=0 paradas E fase=segundo terço    8046         26 +0.106 +40.917  True
+neutralizacao=safety car ou VSC E rival_frente=rival da frente não ...    1525         26 +0.205 +40.724  True
+             idade_pneu=10–19 voltas E neutralizacao=safety car ou VSC    1176         25 +0.229 +40.685  True
+neutralizacao=safety car ou VSC E janela=não cabe a parada E parada...    1612         26 +0.199 +40.567  True
+neutralizacao=safety car ou VSC E rival_frente=rival da frente não ...    4194         26 +0.133 +40.087  True
+janela=não cabe a parada E paradas_feitas=0 paradas E fase=segundo ...    7865         26 +0.105 +40.063  True
+ idade_pneu=10–19 voltas E neutralizacao=safety car ou VSC E era=2022+     581         21 +0.305 +39.473  True
+neutralizacao=safety car ou VSC E rival_tras=rival de trás não paro...    1583         26 +0.196 +39.420  True
+neutralizacao=safety car ou VSC E rival_frente=rival da frente não ...    3967         26 +0.134 +39.200  True
+neutralizacao=safety car ou VSC E rival_frente=rival da frente não ...    1592         26 +0.194 +39.120  True
+                    dist_frente=mais de 3 s E paradas_feitas=0 paradas   12214         26 +0.089 +39.045  True
+idade_pneu=10–19 voltas E neutralizacao=safety car ou VSC E rival_f...    1104         25 +0.226 +38.967  True
+==============================================================================
+3. O PERFIL ACRESCENTA?
+==============================================================================
+Testados: 334. Limiar |z| corrigido (500 permutações): 9.46
+O perfil acrescenta em 0 de 334.
+
+==============================================================================
+4. REDUNDÂNCIA
+==============================================================================
+Firmes: 1771   ficam: 149   saem: 1622
+
+Acima da média: 142
+                                                   descricao  linhas  circuitos  media       z                                             comparado_com
+                             neutralizacao=safety car ou VSC    4570         26 +0.141 +44.912                                              base inteira
+neutralizacao=safety car ou VSC E dist_frente=mais de 3 s...     335         26 +0.433 +43.919 neutralizacao=safety car ou VSC E dist_frente=mais de 3 s
+   neutralizacao=safety car ou VSC E dist_frente=mais de 3 s    1648         26 +0.208 +43.189                           neutralizacao=safety car ou VSC
+idade_pneu=10–19 voltas E neutralizacao=safety car ou VSC...     298         17 +0.443 +42.461 idade_pneu=10–19 voltas E neutralizacao=safety car ou VSC
+  neutralizacao=safety car ou VSC E paradas_feitas=0 paradas    1653         26 +0.200 +41.348                           neutralizacao=safety car ou VSC
+               paradas_feitas=0 paradas E fase=segundo terço    8046         26 +0.106 +40.917                                  paradas_feitas=0 paradas
+   idade_pneu=10–19 voltas E neutralizacao=safety car ou VSC    1176         25 +0.229 +40.685                           neutralizacao=safety car ou VSC
+idade_pneu=10–19 voltas E neutralizacao=safety car ou VSC...     581         21 +0.305 +39.473 idade_pneu=10–19 voltas E neutralizacao=safety car ou VSC
+          dist_frente=mais de 3 s E paradas_feitas=0 paradas   12214         26 +0.089 +39.045                                  paradas_feitas=0 paradas
+                 neutralizacao=safety car ou VSC E era=2022+    2542         24 +0.156 +37.951                           neutralizacao=safety car ou VSC
+neutralizacao=safety car ou VSC E dist_frente=mais de 3 s...     885         24 +0.243 +37.805 neutralizacao=safety car ou VSC E dist_frente=mais de 3 s
+dist_frente=mais de 3 s E paradas_feitas=0 paradas E fase...    4746         26 +0.121 +37.676             paradas_feitas=0 paradas E fase=segundo terço
+            composto=médio E neutralizacao=safety car ou VSC    1557         26 +0.188 +37.150                           neutralizacao=safety car ou VSC
+composto=médio E neutralizacao=safety car ou VSC E dist_f...     465         25 +0.308 +35.682 neutralizacao=safety car ou VSC E dist_frente=mais de 3 s
+idade_pneu=10–19 voltas E neutralizacao=safety car ou VSC...     543         25 +0.284 +35.246 idade_pneu=10–19 voltas E neutralizacao=safety car ou VSC
+
+Abaixo da média: 7
+                                    descricao  linhas  circuitos  media       z           comparado_com
+                        idade_pneu=0–9 voltas   42923         26 +0.010 -24.079            base inteira
+                                composto=duro   58548         26 +0.017 -17.043            base inteira
+                    paradas_feitas=2+ paradas   25196         26 +0.012 -15.859            base inteira
+                            fase=último terço   39597         26 +0.016 -15.692            base inteira
+          composto=duro E fase=primeiro terço    9324         26 +0.006 -13.408           composto=duro
+paradas_feitas=1 parada E fase=primeiro terço    7506         26 +0.007 -11.376 paradas_feitas=1 parada
+                          dist_frente=até 1 s   26387         26 +0.019  -9.778            base inteira
+

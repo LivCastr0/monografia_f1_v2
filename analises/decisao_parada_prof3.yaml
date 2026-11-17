@@ -1,0 +1,33 @@
+# Decisão de parar, profundidade 3: verificação da versão principal (profundidade 2).
+# Definida depois de ver o resultado da profundidade 2; o resto da ficha é igual.
+
+nome: decisao_parada_prof3
+pergunta: em que situações as equipes decidem parar?
+base: decisao_parada  # data/bases/decisao_parada.csv (src/bases.py, função decisao_parada)
+alvo: parou           # 1 = entrou no box na volta e trocou o pneu
+
+descritores:          # situação no fim da volta anterior, exceto a neutralização
+  - d_idade_pneu      # 0–9, 10–19, 20–29, 30+ voltas
+  - d_composto        # macio, médio, duro (relativo ao fim de semana)
+  - d_neutralizacao   # SC ou VSC no ponto de decisão
+  - d_rival_frente    # o carro logo à frente parou na volta anterior
+  - d_rival_tras      # o carro logo atrás parou na volta anterior
+  - d_janela          # distância para trás maior que o tempo perdido no box
+  - d_dist_frente     # até 1 s, 1 a 3 s, mais de 3 s
+  - d_paradas_feitas  # 0, 1, 2+
+  - d_fase            # terço da corrida
+  - d_posicao         # top 5, 6.º a 10.º, 11.º em diante
+  - d_perfil          # perfil do circuito (Etapa 1)
+  - d_era             # 2018-21 ou 2022+
+
+suporte: 200
+profundidade: 3       # verificação: na versão 1 era inviável; definida depois da versão com 2
+
+validacao:
+  semente: 16
+  permutacoes: 500
+  permutacoes_perfil: 5000
+  min_circuitos: 4
+  max_circuito: 0.40
+  min_ganho: 0.01     # redundância: 1 ponto percentual (taxa geral ~3% por volta)
+  min_z: 2.0

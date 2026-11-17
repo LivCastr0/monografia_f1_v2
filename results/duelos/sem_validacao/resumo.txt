@@ -4,7 +4,7 @@ Base: 19,475 linhas, 122 corridas, 26 circuitos. Média geral do alvo: 0.1327
 ==============================================================================
 2. A BUSCA (11 descritores, profundidade 3, suporte 100)
 ==============================================================================
-Subgrupos com suporte mínimo: 3,177 (0.3 s)
+Subgrupos com suporte mínimo: 3,177 (0.5 s)
 
 Maiores |z|:
                                                              descricao  linhas  circuitos  media       z

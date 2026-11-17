@@ -74,6 +74,7 @@ def cobertura(m, idx):
 
 
 def medidas(m, idx, Y, circ_id, n_circ):
+    # Y em float32 (permutações) ou float64 (alvo observado); a cobertura segue o tipo de Y.
     """Para cada subgrupo: n, soma do alvo centrado em cada coluna de Y, contagem por
     circuito. Y tem uma coluna por versão do alvo (a original e as permutadas)."""
     n = np.empty(len(idx), dtype=np.int64)
@@ -82,7 +83,7 @@ def medidas(m, idx, Y, circ_id, n_circ):
     um_circ = np.zeros((m.shape[1], n_circ), dtype=np.float32)
     um_circ[np.arange(m.shape[1]), circ_id] = 1
     for a in range(0, len(idx), BLOCO):
-        c = cobertura(m, idx[a:a + BLOCO]).astype(np.float32)
+        c = cobertura(m, idx[a:a + BLOCO]).astype(Y.dtype)
         n[a:a + BLOCO] = c.sum(axis=1)
         soma[a:a + BLOCO] = c @ Y
         por_circ[a:a + BLOCO] = np.rint(c @ um_circ)
@@ -102,7 +103,7 @@ def busca(df, descritores, alvo, suporte, profundidade):
 
     y = df[alvo].to_numpy(dtype=float)
     circ_id, circs = pd.factorize(df["circuito"])
-    n, soma, por_circ = medidas(m, idx, (y - y.mean())[:, None].astype(np.float32),
+    n, soma, por_circ = medidas(m, idx, (y - y.mean())[:, None],
                                 circ_id, len(circs))
     soma = soma[:, 0]
     res = pd.DataFrame({

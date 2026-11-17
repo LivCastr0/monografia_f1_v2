@@ -16,9 +16,9 @@ O perfil muda o alvo? p = 0.0434 (permutação entre 26 circuitos)
 ==============================================================================
 2. A BUSCA (11 descritores, profundidade 3, suporte 100)
 ==============================================================================
-Subgrupos com suporte mínimo: 3,177 (0.3 s)
+Subgrupos com suporte mínimo: 3,177 (0.5 s)
 Elegíveis (4+ circuitos, nenhum acima de 40%): 2,938
-Limiar |z| (5%, 500 permutações): 8.61 (56.0 s)
+Limiar |z| (5%, 500 permutações): 8.61 (53.9 s)
 Acima do limiar: 947   firmes: 947   firmes com perfil: 197
 
 Maiores |z| entre os elegíveis:

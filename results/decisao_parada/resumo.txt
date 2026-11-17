@@ -1,0 +1,84 @@
+Análise: decisao_parada — em que situações as equipes decidem parar?
+Base: 120,989 linhas, 122 corridas, 26 circuitos. Média geral do alvo: 0.0292
+
+==============================================================================
+1. O ALVO POR PERFIL
+==============================================================================
+                linhas  circuitos  media
+d_perfil                                
+alto downforce   47683         11 0.0308
+potência         21253          5 0.0282
+stop-and-go      43993          8 0.0297
+urbano-técnico    8060          2 0.0190
+
+O perfil muda o alvo? p = 0.3699 (permutação entre 26 circuitos)
+
+==============================================================================
+2. A BUSCA (12 descritores, profundidade 2, suporte 200)
+==============================================================================
+Subgrupos com suporte mínimo: 523 (0.8 s)
+Elegíveis (4+ circuitos, nenhum acima de 40%): 492
+Limiar |z| (5%, 500 permutações): 7.58 (76.3 s)
+Acima do limiar: 271   firmes: 271   firmes com perfil: 31
+
+Maiores |z| entre os elegíveis:
+                                                             descricao  linhas  circuitos  media       z firme
+                                       neutralizacao=safety car ou VSC    4570         26 +0.141 +44.912  True
+             neutralizacao=safety car ou VSC E dist_frente=mais de 3 s    1648         26 +0.208 +43.189  True
+neutralizacao=safety car ou VSC E rival_frente=rival da frente não ...    4358         26 +0.137 +42.316  True
+  neutralizacao=safety car ou VSC E rival_tras=rival de trás não parou    4330         26 +0.136 +41.714  True
+            neutralizacao=safety car ou VSC E janela=não cabe a parada    4153         26 +0.138 +41.593  True
+            neutralizacao=safety car ou VSC E paradas_feitas=0 paradas    1653         26 +0.200 +41.348  True
+                         paradas_feitas=0 paradas E fase=segundo terço    8046         26 +0.106 +40.917  True
+             idade_pneu=10–19 voltas E neutralizacao=safety car ou VSC    1176         25 +0.229 +40.685  True
+                    dist_frente=mais de 3 s E paradas_feitas=0 paradas   12214         26 +0.089 +39.045  True
+                           neutralizacao=safety car ou VSC E era=2022+    2542         24 +0.156 +37.951  True
+                      composto=médio E neutralizacao=safety car ou VSC    1557         26 +0.188 +37.150  True
+                  neutralizacao=safety car ou VSC E fase=segundo terço    1117         19 +0.193 +32.625  True
+                      idade_pneu=30+ voltas E paradas_feitas=0 paradas    2565         24 +0.137 +32.420  True
+               neutralizacao=safety car ou VSC E perfil=alto downforce    2101         11 +0.148 +32.388  True
+                          idade_pneu=20–29 voltas E fase=segundo terço    9695         26 +0.084 +31.898  True
+             idade_pneu=20–29 voltas E neutralizacao=safety car ou VSC     518         21 +0.263 +31.576  True
+                        rival_tras=rival de trás parou E posicao=top 5     807         26 +0.207 +30.021  True
+              neutralizacao=safety car ou VSC E posicao=11.º em diante    2027         26 +0.140 +29.562  True
+              rival_tras=rival de trás parou E dist_frente=mais de 3 s    1422         26 +0.160 +29.248  True
+                    idade_pneu=20–29 voltas E paradas_feitas=0 paradas    6639         26 +0.086 +27.756  True
+==============================================================================
+3. O PERFIL ACRESCENTA?
+==============================================================================
+Testados: 31. Limiar |z| corrigido (500 permutações): 8.18
+O perfil acrescenta em 0 de 31.
+
+==============================================================================
+4. REDUNDÂNCIA
+==============================================================================
+Firmes: 271   ficam: 63   saem: 208
+
+Acima da média: 56
+                                                 descricao  linhas  circuitos  media       z                   comparado_com
+                           neutralizacao=safety car ou VSC    4570         26 +0.141 +44.912                    base inteira
+ neutralizacao=safety car ou VSC E dist_frente=mais de 3 s    1648         26 +0.208 +43.189 neutralizacao=safety car ou VSC
+neutralizacao=safety car ou VSC E paradas_feitas=0 paradas    1653         26 +0.200 +41.348 neutralizacao=safety car ou VSC
+             paradas_feitas=0 paradas E fase=segundo terço    8046         26 +0.106 +40.917        paradas_feitas=0 paradas
+ idade_pneu=10–19 voltas E neutralizacao=safety car ou VSC    1176         25 +0.229 +40.685 neutralizacao=safety car ou VSC
+        dist_frente=mais de 3 s E paradas_feitas=0 paradas   12214         26 +0.089 +39.045        paradas_feitas=0 paradas
+               neutralizacao=safety car ou VSC E era=2022+    2542         24 +0.156 +37.951 neutralizacao=safety car ou VSC
+          composto=médio E neutralizacao=safety car ou VSC    1557         26 +0.188 +37.150 neutralizacao=safety car ou VSC
+      neutralizacao=safety car ou VSC E fase=segundo terço    1117         19 +0.193 +32.625 neutralizacao=safety car ou VSC
+          idade_pneu=30+ voltas E paradas_feitas=0 paradas    2565         24 +0.137 +32.420        paradas_feitas=0 paradas
+              idade_pneu=20–29 voltas E fase=segundo terço    9695         26 +0.084 +31.898         idade_pneu=20–29 voltas
+ idade_pneu=20–29 voltas E neutralizacao=safety car ou VSC     518         21 +0.263 +31.576 neutralizacao=safety car ou VSC
+            rival_tras=rival de trás parou E posicao=top 5     807         26 +0.207 +30.021  rival_tras=rival de trás parou
+  rival_tras=rival de trás parou E dist_frente=mais de 3 s    1422         26 +0.160 +29.248  rival_tras=rival de trás parou
+        idade_pneu=20–29 voltas E paradas_feitas=0 paradas    6639         26 +0.086 +27.756        paradas_feitas=0 paradas
+
+Abaixo da média: 7
+                                    descricao  linhas  circuitos  media       z           comparado_com
+                        idade_pneu=0–9 voltas   42923         26 +0.010 -24.079            base inteira
+                                composto=duro   58548         26 +0.017 -17.043            base inteira
+                    paradas_feitas=2+ paradas   25196         26 +0.012 -15.859            base inteira
+                            fase=último terço   39597         26 +0.016 -15.692            base inteira
+          composto=duro E fase=primeiro terço    9324         26 +0.006 -13.408           composto=duro
+paradas_feitas=1 parada E fase=primeiro terço    7506         26 +0.007 -11.376 paradas_feitas=1 parada
+                          dist_frente=até 1 s   26387         26 +0.019  -9.778            base inteira
+

@@ -60,6 +60,12 @@ preservada no repositório original, `LivCastr0/monografia_f1`.
 - Reproduz a versão 1 exatamente: 3.177 subgrupos, 2.938 elegíveis com o mesmo z, os mesmos 947 firmes (197 com perfil), o perfil acrescenta em 0 de 197, os mesmos 104 finais. Perfil × taxa de ultrapassagem p = 0,043
 - Sem validação: dos 200 maiores |z|, 199 são firmes; o que muda a lista é a redundância (8 dos 20 primeiros ficam)
 
+### Decisão de parar (`analises/decisao_parada.yaml`)
+
+- Conferência do motor sobre a base da versão 1: os mesmos 492 elegíveis, 272 firmes e 63 finais. O z difere em até 0,015 porque a versão 1 somava em float32; a busca agora soma em float64 (as permutações seguem em float32)
+- Na base da versão 2 (sem as 86 voltas corrigidas): p do perfil 0,37; 492 elegíveis; limiar 7,58; 271 firmes (31 com perfil); o perfil acrescenta em 0 de 31; os mesmos 63 finais. O firme que caiu ("fase=último terço E perfil=potência") estava colado no limiar
+- Verificação com profundidade 3 (`decisao_parada_prof3.yaml`, definida depois da versão com profundidade 2): 15 min, pico de 1,9 GB. 4.051 elegíveis, limiar 7,68, 1.771 firmes (334 com perfil), o perfil acrescenta em 0 de 334, 149 finais. Os 63 finais da profundidade 2 continuam todos; os 86 novos têm 3 condições e refinam sobretudo o safety car (ex.: SC/VSC, mais de 3 s para o carro da frente e sem ter parado: 43% de parada)
+
 ### Pendente
 
-- Ficha da decisão de parar
+- Hipóteses do relatório: (i) estratégia × posições ganhas, (ii) carro/piloto, (iii) safety car e chuva
