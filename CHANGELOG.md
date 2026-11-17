@@ -16,7 +16,29 @@ Registro cronológico das decisões e marcos do projeto.
 - Pipeline resiliente com cache FastF1 e registro de falhas
 - 26 circuitos canônicos × 10 features, zero nulos
 
+- Features manuais e externas integradas (pit lane, altitude, Pirelli); EDA formal (`01_eda_features.ipynb`)
+- Clusterização (`02_clusterizacao_circuitos.ipynb`): KMeans, `so_dinamicas` (5 features de telemetria), k = 4; silhouette 0,270, Davies-Bouldin 1,000, ARI bootstrap 0,818
+- Partição adotada: coluna `cluster_kmeans_so_dinamicas_k4` de `clusters_circuitos.csv` (11/8/5/2). A coluna `cluster_final` não é a partição adotada
+
 ### Pendente
 
-- Coleta manual das features #1, #5, #6 (site F1) e integração com #7 (Pirelli) e #9 (altitude)
-- EDA formal sobre o vetor completo de features
+- Conferir o sinal do heatmap de centroides do cluster de potência (o pico de desaceleração é negativo nos dados brutos)
+
+---
+
+## Etapa 2 — Descoberta de subgrupos nas corridas (versão 2)
+
+Este repositório recomeça a Etapa 2 a partir das coletas já feitas. A primeira
+versão da Etapa 2 (bases, buscas, hipóteses H1–H11, validações e fichas) segue
+preservada no repositório original, `LivCastr0/monografia_f1`.
+
+### Coletas trazidas da versão 1
+
+- Coleta de corridas (`coleta_corridas.py`): pilotos, stints, bandeiras e clima por corrida em `data/interim/corridas/`; falhas em `data/interim/falhas_coleta_corridas.csv`
+- Coleta volta a volta (`coleta_voltas.py`): `data/interim/voltas/`, 163 de 164 corridas de 2018–2025 (Monza 2018 sem dados de tempo); 2022 incluído
+- Teste do script de coleta (`testa_coleta_corrida.py`)
+- Contagem manual de zonas de DRS por circuito (`data/external/zonas_drs_por_circuito.csv`)
+
+### Pendente
+
+- Montar as bases por grão a partir das coletas

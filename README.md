@@ -9,7 +9,7 @@ Identificar padrões estratégicos na Fórmula 1 cruzando duas análises complem
 - **Clustering de circuitos** (unidade de análise: circuito): agrupa pistas com perfis físicos semelhantes
 - **Subgroup Discovery** (unidade de análise: piloto-corrida): encontra subgrupos com comportamentos estratégicos distintos
 
-Os clusters de circuito servem de ponte entre as duas análises — uma feature do grão de corrida.
+Os clusters de circuito foram planejados como ponte entre as duas análises. Na Etapa 2, eles são usados para testar se os padrões encontrados pela descoberta de subgrupos dependem do tipo de circuito.
 
 ---
 
@@ -73,17 +73,17 @@ Coleta e engenharia de features para o grão circuito.
 - `data/raw/falhas_extracao.csv`
 - `data/external/template_features_manuais.xlsx`
 
-### ⬜ Etapa 2 — EDA e clustering (próxima)
+**Clusterização (concluída):** KMeans sobre 5 features de telemetria (`so_dinamicas`), k = 4, em `notebooks/02_clusterizacao_circuitos.ipynb`. Partição adotada: coluna `cluster_kmeans_so_dinamicas_k4` de `data/processed/clusters_circuitos.csv` (alto downforce 11, stop-and-go 8, potência 5, urbano-técnico 2).
 
-- EDA formal sobre o vetor completo de features
-- Seleção de features
-- Clustering dos 26 circuitos
+### 🔄 Etapa 2 — Descoberta de subgrupos nas corridas (MSI II, versão 2)
 
-### ⬜ Etapa 3 — Subgroup Discovery
+Recomeço da Etapa 2 a partir das coletas já feitas. A primeira versão das análises fica preservada no repositório original, `LivCastr0/monografia_f1`.
 
-- Construção do grão piloto-corrida
-- Integração com cluster IDs
-- Aplicação de Subgroup Discovery
+**Coletas prontas:**
+- `data/interim/corridas/` — pilotos, stints, bandeiras e clima por corrida (`src/coleta_corridas.py`)
+- `data/interim/voltas/` — volta a volta de 163 corridas, 2018–2025 (`src/coleta_voltas.py`)
+- `data/interim/falhas_coleta_corridas.csv` — corridas sem dados
+- `data/external/zonas_drs_por_circuito.csv` — zonas de DRS por circuito (manual)
 
 ---
 
