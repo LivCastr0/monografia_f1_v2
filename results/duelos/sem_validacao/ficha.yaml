@@ -1,0 +1,32 @@
+# Duelos: em que condições o carro de trás consegue passar?
+# Fixado antes de rodar (mesmos parâmetros da versão 1, opção 4, versão principal).
+
+nome: duelos
+pergunta: em que condições o carro de trás consegue passar?
+base: duelos          # data/bases/duelos.csv (src/bases.py, função duelos)
+alvo: passou          # 1 = atacante à frente ao fim da volta
+
+descritores:
+  - d_perfil          # perfil do circuito (Etapa 1)
+  - d_era             # 2018-21 ou 2022+ (desvio do relatório: a era entrou como descritor)
+  - d_dif_idade       # idade do pneu do defensor menos a do atacante
+  - d_dif_composto    # atacante mais macio / igual / mais duro
+  - d_distancia       # até 0,3 s / 0,3 a 0,6 s / 0,6 a 1,0 s
+  - d_trem            # defensor também a até 1,0 s do carro da frente
+  - d_largada         # quem largou à frente
+  - d_fase            # terço da corrida
+  - d_relargada       # uma das 3 voltas seguintes a uma neutralização
+  - d_posicao         # posição disputada
+  - d_mesma_equipe
+
+suporte: 100
+profundidade: 3
+
+validacao:
+  semente: 14
+  permutacoes: 500
+  permutacoes_perfil: 5000
+  min_circuitos: 4
+  max_circuito: 0.40
+  min_ganho: 0.03     # redundância: 3 pontos percentuais
+  min_z: 2.0

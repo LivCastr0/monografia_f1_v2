@@ -85,16 +85,23 @@ Recomeço da Etapa 2 a partir das coletas já feitas. A primeira versão das an�
 src/bases.py          tabelas centrais (corridas, piloto-corrida, piloto-volta)
                       e os recortes de cada análise (decisão de parar, duelos)
 src/confere_bases.py  compara as bases com as da versão 1, linha a linha
-src/busca.py          motor de descoberta de subgrupos         (a escrever)
-src/validacao.py      permutação, firmeza, redundância          (a escrever)
-src/perfil.py         camada de perfil, igual para todas        (a escrever)
-src/rodar.py          roda uma análise a partir da ficha        (a escrever)
+src/busca.py          motor de descoberta de subgrupos
+src/validacao.py      elegibilidade, limiar por permutação, firmeza, redundância
+src/perfil.py         camada de perfil, igual para todas as análises
+src/rodar.py          roda uma análise a partir da ficha
 analises/             uma ficha por análise, escrita antes de rodar
 results/              saídas, uma pasta por análise
 data/bases/           bases geradas (não versionadas)
 ```
 
 Para gerar as bases: `python src/bases.py` (cerca de 6 s).
+
+Para rodar uma análise:
+
+```bash
+python src/rodar.py analises/duelos.yaml                  # busca + validação + perfil
+python src/rodar.py analises/duelos.yaml --sem-validacao  # só a busca
+```
 
 **Coletas prontas:**
 - `data/interim/corridas/` — pilotos, stints, bandeiras e clima por corrida (`src/coleta_corridas.py`)

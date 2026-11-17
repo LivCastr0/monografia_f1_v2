@@ -3,7 +3,7 @@ pandas
 numpy
 scipy
 scikit-learn
-pysubgroup
+pyyaml
 matplotlib
 seaborn
 jupyterlab

@@ -347,7 +347,7 @@ def duelos(pv, pc, distancia=1.0, volta_minima=3, voltas_relargada=3):
         "ano": a["ano"], "round": a["round"], "circuito": a["circuito"], "volta": a["volta"],
         "defensor": a["defensor"], "atacante": a["atacante"],
         "passou": (a["posicao_a1"] < a["posicao_d1"]).astype(int),
-        "distancia_s": a["distancia_s"], "dif_idade": dif,
+        "posicao_disputada": a["posicao_d0"], "distancia_s": a["distancia_s"], "dif_idade": dif,
         "d_dif_idade": ["atacante 10+ voltas mais novo" if x >= 10 else
                         "atacante 5 a 9 voltas mais novo" if x >= 5 else
                         "diferença de até 4 voltas" if x > -5 else
@@ -365,7 +365,7 @@ def duelos(pv, pc, distancia=1.0, volta_minima=3, voltas_relargada=3):
                       for x in a["posicao_d0"]],
         "d_mesma_equipe": np.where(ea == ed, "mesma equipe", "equipes diferentes"),
         "d_perfil": a["perfil"], "d_era": a["era"],
-    }).sort_values(["ano", "round", "volta", "distancia_s"]).reset_index(drop=True)
+    }).sort_values(["ano", "round", "volta", "posicao_disputada"]).reset_index(drop=True)
 
 
 def main():

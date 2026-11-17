@@ -1,0 +1,83 @@
+Análise: duelos — em que condições o carro de trás consegue passar?
+Base: 19,475 linhas, 122 corridas, 26 circuitos. Média geral do alvo: 0.1327
+
+==============================================================================
+1. O ALVO POR PERFIL
+==============================================================================
+                linhas  circuitos  media
+d_perfil                                
+alto downforce    7750         11 0.1330
+potência          4097          5 0.1330
+stop-and-go       6121          8 0.1552
+urbano-técnico    1507          2 0.0385
+
+O perfil muda o alvo? p = 0.0434 (permutação entre 26 circuitos)
+
+==============================================================================
+2. A BUSCA (11 descritores, profundidade 3, suporte 100)
+==============================================================================
+Subgrupos com suporte mínimo: 3,177 (0.3 s)
+Elegíveis (4+ circuitos, nenhum acima de 40%): 2,938
+Limiar |z| (5%, 500 permutações): 8.61 (56.0 s)
+Acima do limiar: 947   firmes: 947   firmes com perfil: 197
+
+Maiores |z| entre os elegíveis:
+                                                             descricao  linhas  circuitos  media       z firme
+                                                   distancia=até 0,3 s    1171         26 +0.554 +42.522  True
+         dif_idade=atacante 10+ voltas mais novo E trem=defensor livre    2038         26 +0.450 +42.286  True
+                 distancia=até 0,3 s E mesma_equipe=equipes diferentes    1096         26 +0.559 +41.633  True
+                               dif_idade=atacante 10+ voltas mais novo    2558         26 +0.411 +41.474  True
+dif_idade=atacante 10+ voltas mais novo E trem=defensor livre E rel...    1874         26 +0.455 +41.085  True
+                             distancia=até 0,3 s E trem=defensor livre     806         26 +0.615 +40.396  True
+dif_idade=atacante 10+ voltas mais novo E trem=defensor livre E mes...    1940         26 +0.443 +40.329  True
+    dif_idade=atacante 10+ voltas mais novo E relargada=corrida normal    2308         26 +0.417 +40.298  True
+dif_idade=atacante 10+ voltas mais novo E mesma_equipe=equipes dife...    2417         26 +0.407 +39.771  True
+distancia=até 0,3 s E trem=defensor livre E mesma_equipe=equipes di...     755         26 +0.623 +39.675  True
+                        distancia=até 0,3 s E relargada=corrida normal     924         26 +0.570 +39.216  True
+dif_idade=atacante 10+ voltas mais novo E relargada=corrida normal ...    2188         26 +0.414 +38.737  True
+distancia=até 0,3 s E relargada=corrida normal E mesma_equipe=equip...     864         26 +0.575 +38.345  True
+  distancia=até 0,3 s E trem=defensor livre E relargada=corrida normal     676         26 +0.621 +37.449  True
+dif_idade=atacante 10+ voltas mais novo E trem=defensor livre E lar...    1390         26 +0.471 +37.127  True
+era=2022+ E dif_idade=atacante 10+ voltas mais novo E trem=defensor...    1170         25 +0.498 +36.864  True
+dif_idade=atacante 10+ voltas mais novo E largada=atacante largou à...    1713         26 +0.434 +36.801  True
+dif_idade=atacante 10+ voltas mais novo E trem=defensor livre E fas...     885         26 +0.548 +36.422  True
+         dif_idade=atacante 10+ voltas mais novo E distancia=até 0,3 s     343         24 +0.790 +35.890  True
+                           perfil=alto downforce E distancia=até 0,3 s     561         11 +0.645 +35.789  True
+==============================================================================
+3. O PERFIL ACRESCENTA?
+==============================================================================
+Testados: 197. Limiar |z| corrigido (500 permutações): 11.51
+O perfil acrescenta em 0 de 197.
+
+==============================================================================
+4. REDUNDÂNCIA
+==============================================================================
+Firmes: 947   ficam: 104   saem: 843
+
+Acima da média: 98
+                                                   descricao  linhas  circuitos  media       z                                                comparado_com
+                                         distancia=até 0,3 s    1171         26 +0.554 +42.522                                                 base inteira
+dif_idade=atacante 10+ voltas mais novo E trem=defensor l...    2038         26 +0.450 +42.286                      dif_idade=atacante 10+ voltas mais novo
+                     dif_idade=atacante 10+ voltas mais novo    2558         26 +0.411 +41.474                                                 base inteira
+                   distancia=até 0,3 s E trem=defensor livre     806         26 +0.615 +40.396                                          distancia=até 0,3 s
+era=2022+ E dif_idade=atacante 10+ voltas mais novo E tre...    1170         25 +0.498 +36.864 dif_idade=atacante 10+ voltas mais novo E trem=defensor l...
+dif_idade=atacante 10+ voltas mais novo E trem=defensor l...     885         26 +0.548 +36.422 dif_idade=atacante 10+ voltas mais novo E fase=segundo terço
+dif_idade=atacante 10+ voltas mais novo E distancia=até 0...     343         24 +0.790 +35.890                                          distancia=até 0,3 s
+                 perfil=alto downforce E distancia=até 0,3 s     561         11 +0.645 +35.789                                          distancia=até 0,3 s
+      distancia=até 0,3 s E largada=atacante largou à frente     632         25 +0.608 +35.194                                          distancia=até 0,3 s
+perfil=alto downforce E distancia=até 0,3 s E trem=defens...     401         11 +0.728 +35.152                  perfil=alto downforce E distancia=até 0,3 s
+dif_idade=atacante 10+ voltas mais novo E fase=segundo terço    1123         26 +0.486 +34.921                      dif_idade=atacante 10+ voltas mais novo
+dif_idade=atacante 10+ voltas mais novo E distancia=0,3 a...     797         26 +0.547 +34.483 dif_idade=atacante 10+ voltas mais novo E distancia=0,3 a...
+distancia=até 0,3 s E trem=defensor livre E largada=ataca...     445         24 +0.670 +33.391                    distancia=até 0,3 s E trem=defensor livre
+dif_idade=atacante 10+ voltas mais novo E distancia=0,3 a...    1040         26 +0.473 +32.359                      dif_idade=atacante 10+ voltas mais novo
+                 distancia=0,3 a 0,6 s E trem=defensor livre    3183         26 +0.321 +31.332                                        distancia=0,3 a 0,6 s
+
+Abaixo da média: 6
+                                           descricao  linhas  circuitos  media       z         comparado_com
+                               distancia=0,6 a 1,0 s   12402         26 +0.056 -25.107          base inteira
+distancia=0,6 a 1,0 s E trem=defensor em trem de DRS    5215         26 +0.020 -23.918 distancia=0,6 a 1,0 s
+                        trem=defensor em trem de DRS    8299         26 +0.057 -20.260          base inteira
+                 dif_idade=diferença de até 4 voltas   14351         26 +0.079 -19.073          base inteira
+                                 fase=primeiro terço    9522         26 +0.091 -11.975          base inteira
+                    largada=defensor largou à frente   11266         26 +0.098 -10.992          base inteira
+

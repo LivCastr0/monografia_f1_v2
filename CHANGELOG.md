@@ -48,6 +48,18 @@ preservada no repositório original, `LivCastr0/monografia_f1`.
   - decisão de parar: 120.989 linhas contra 121.075; todos os descritores iguais nas linhas comuns
 - Correção em relação à versão 1: na decisão de parar, 86 voltas sem idade do pneu (Baku 2018 e Spielberg 2022, uma delas com parada) caíam na faixa "30+ voltas" porque a função de faixas não tratava valor vazio. Agora saem da base
 
+### Motor de busca (`src/busca.py`, `src/validacao.py`, `src/perfil.py`, `src/rodar.py`)
+
+- Busca própria no lugar do pysubgroup: enumera todas as conjunções de até 3 condições com suporte mínimo e calcula o z de todas numa conta matricial. Mesmo resultado do pysubgroup com StandardQFNumeric (a = 0,5)
+- Cada análise é uma ficha em `analises/`, escrita antes de rodar; saídas em `results/<nome>/` com cópia da ficha
+- A validação liga e desliga (`--sem-validacao`), para comparar com a busca sem testes
+- Limiar por permutação com os sorteios na ordem da versão 1; os subgrupos sem perfil e sem era têm todas as permutações calculadas de uma vez
+
+### Duelos (`analises/duelos.yaml`)
+
+- Reproduz a versão 1 exatamente: 3.177 subgrupos, 2.938 elegíveis com o mesmo z, os mesmos 947 firmes (197 com perfil), o perfil acrescenta em 0 de 197, os mesmos 104 finais. Perfil × taxa de ultrapassagem p = 0,043
+- Sem validação: dos 200 maiores |z|, 199 são firmes; o que muda a lista é a redundância (8 dos 20 primeiros ficam)
+
 ### Pendente
 
-- Motor de busca, validação e camada de perfil
+- Ficha da decisão de parar
